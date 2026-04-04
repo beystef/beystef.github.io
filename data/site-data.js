@@ -138,25 +138,26 @@ window.siteData = {
   ],
   projects: [
     {
-      title: "Project One",
+      title: "HazelPro / Hazelnut Dynamics",
+      category: "Featured project",
       description:
-        "Describe a project in two or three lines: what it does, why it matters, and what your role was.",
-      tags: ["JavaScript", "Frontend", "UX"],
-      link: "#"
-    },
-    {
-      title: "Project Two",
-      description:
-        "A second project can focus on engineering depth, research, data, or product thinking.",
-      tags: ["Data", "Experimentation", "Backend"],
-      link: "#"
-    },
-    {
-      title: "Project Three",
-      description:
-        "This can be an open-source effort, academic work, startup prototype, or personal tool.",
-      tags: ["Open Source", "Tooling", "Learning"],
-      link: "#"
+        "A data-science storytelling project on hazelnut price dynamics in Ordu, Turkey. It combines price history, weather, exchange rates, Google Trends, hypothesis testing, and machine learning into an interactive research website.",
+      tags: ["Data Science", "Machine Learning", "Flask", "Interactive Research"],
+      link: "https://hazelnutdynamics.efdalyilmaz.com/",
+      secondaryLink: "https://github.com/beystef/Hazelnut-Dynamics",
+      secondaryLabel: "View repository",
+      linkLabel: "Visit live project",
+      note: "Built as a narrative analysis site with dedicated sections for methodology, findings, ML results, and an interactive explorer.",
+      highlights: [
+        "26 years of hazelnut price data",
+        "4 integrated data sources",
+        "46 engineered features"
+      ],
+      theme: {
+        accent: "#8B6F47",
+        soft: "#F7F1E6",
+        border: "#D8C4A2"
+      }
     }
   ],
   posts: [

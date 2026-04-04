@@ -95,6 +95,17 @@ function createCvEntry(item, options = {}) {
 function createCard(item, options = {}) {
   const article = document.createElement("article");
   article.className = "card";
+  const isProject = options.variant === "project";
+
+  if (isProject) {
+    article.classList.add("project-card");
+
+    if (item.theme) {
+      article.style.setProperty("--project-accent", item.theme.accent);
+      article.style.setProperty("--project-soft", item.theme.soft);
+      article.style.setProperty("--project-border", item.theme.border);
+    }
+  }
 
   if (options.meta) {
     const meta = document.createElement("p");
@@ -111,15 +122,39 @@ function createCard(item, options = {}) {
   body.textContent = item.description || item.summary;
   article.appendChild(body);
 
+  if (item.note) {
+    const note = document.createElement("p");
+    note.className = "project-note";
+    note.textContent = item.note;
+    article.appendChild(note);
+  }
+
   if (item.tags) {
     article.appendChild(createTagList(item.tags));
   }
 
+  if (item.highlights) {
+    article.appendChild(createBulletList(item.highlights));
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "card-actions";
+
   const link = document.createElement("a");
   link.className = "text-link";
   link.href = item.link;
-  link.textContent = options.linkLabel || "Open";
-  article.appendChild(link);
+  link.textContent = item.linkLabel || options.linkLabel || "Open";
+  actions.appendChild(link);
+
+  if (item.secondaryLink) {
+    const secondary = document.createElement("a");
+    secondary.className = "text-link text-link-secondary";
+    secondary.href = item.secondaryLink;
+    secondary.textContent = item.secondaryLabel || "Secondary link";
+    actions.appendChild(secondary);
+  }
+
+  article.appendChild(actions);
 
   return article;
 }
@@ -207,7 +242,13 @@ function renderProjectsPage() {
   const projectList = document.getElementById("project-list");
 
   data.projects.forEach((project) => {
-    projectList.appendChild(createCard(project, { linkLabel: "View project" }));
+    projectList.appendChild(
+      createCard(project, {
+        variant: "project",
+        meta: (item) => item.category || "Project",
+        linkLabel: "View project"
+      })
+    );
   });
 }
 

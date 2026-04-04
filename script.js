@@ -1,5 +1,14 @@
 const data = window.siteData;
 
+function setBranding(pageTitle) {
+  document.title = `${pageTitle} | ${data.profile.name}`;
+  const brand = document.getElementById("brand-text");
+
+  if (brand) {
+    brand.textContent = data.profile.name;
+  }
+}
+
 function createTagList(tags) {
   const list = document.createElement("div");
   list.className = "tag-list";
@@ -35,7 +44,7 @@ function createCvEntry(item, options = {}) {
   header.className = "cv-entry-header";
   header.innerHTML = `
     <div>
-      <h4>${options.title(item)}</h4>
+      <h3>${options.title(item)}</h3>
       <p class="cv-subtitle">${options.subtitle(item)}</p>
     </div>
     <div class="cv-meta">
@@ -102,15 +111,16 @@ function createCard(item, options = {}) {
 }
 
 function renderHomePage() {
-  document.title = `${data.profile.name} | Personal Website`;
-  document.getElementById("brand-text").textContent = data.profile.name;
+  setBranding("Home");
   document.getElementById("hero-location").textContent = data.profile.location;
-  document.getElementById(
-    "hero-title"
-  ).textContent = `${data.profile.name} . ${data.profile.role}`;
+  document.getElementById("hero-title").textContent = data.profile.name;
   document.getElementById("hero-summary").textContent = data.profile.summary;
+}
+
+function renderAboutPage() {
+  setBranding("About");
+  document.getElementById("about-summary").textContent = data.profile.summary;
   document.getElementById("about-bio").textContent = data.profile.bio;
-  document.getElementById("contact-note").textContent = data.profile.contactNote;
 
   const focusList = document.getElementById("focus-list");
   data.profile.focus.forEach((item) => {
@@ -130,6 +140,10 @@ function renderHomePage() {
     `;
     timeline.appendChild(block);
   });
+}
+
+function renderCvPage() {
+  setBranding("CV");
 
   const educationList = document.getElementById("education-list");
   data.education.forEach((item) => {
@@ -167,26 +181,39 @@ function renderHomePage() {
 
   const skillsList = document.getElementById("skills-list");
   data.skills.forEach((skill) => {
-    const item = document.createElement("span");
-    item.className = "tag";
-    item.textContent = skill;
-    skillsList.appendChild(item);
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = skill;
+    skillsList.appendChild(tag);
   });
+}
 
+function renderProjectsPage() {
+  setBranding("Projects");
   const projectList = document.getElementById("project-list");
+
   data.projects.forEach((project) => {
     projectList.appendChild(createCard(project, { linkLabel: "View project" }));
   });
+}
 
-  const postList = document.getElementById("post-list");
-  data.posts.slice(0, 3).forEach((post) => {
-    postList.appendChild(
+function renderBlogPage() {
+  setBranding("Blog");
+  const archive = document.getElementById("blog-archive");
+
+  data.posts.forEach((post) => {
+    archive.appendChild(
       createCard(post, {
         meta: (item) => `${item.category} . ${item.date}`,
-        linkLabel: "Read post"
+        linkLabel: "Open post"
       })
     );
   });
+}
+
+function renderContactPage() {
+  setBranding("Contact");
+  document.getElementById("contact-note").textContent = data.profile.contactNote;
 
   const contactLinks = document.getElementById("contact-links");
   data.contact.forEach((item) => {
@@ -201,25 +228,28 @@ function renderHomePage() {
   });
 }
 
-function renderBlogPage() {
-  document.title = `Blog | ${data.profile.name}`;
-  document.getElementById("brand-text").textContent = data.profile.name;
-  const archive = document.getElementById("blog-archive");
+const page = document.body.dataset.page;
 
-  data.posts.forEach((post) => {
-    archive.appendChild(
-      createCard(post, {
-        meta: (item) => `${item.category} . ${item.date}`,
-        linkLabel: "Open post"
-      })
-    );
-  });
-}
-
-if (document.body.dataset.page === "home") {
+if (page === "home") {
   renderHomePage();
 }
 
-if (document.body.dataset.page === "blog") {
+if (page === "about") {
+  renderAboutPage();
+}
+
+if (page === "cv") {
+  renderCvPage();
+}
+
+if (page === "projects") {
+  renderProjectsPage();
+}
+
+if (page === "blog") {
   renderBlogPage();
+}
+
+if (page === "contact") {
+  renderContactPage();
 }

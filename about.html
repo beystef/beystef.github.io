@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog</title>
-    <meta name="description" content="Blog archive of Yusuf Efdal Yilmaz." />
+    <title>About</title>
+    <meta name="description" content="About Yusuf Efdal Yilmaz." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body data-page="blog">
+  <body data-page="about">
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="/">
@@ -31,18 +31,30 @@
 
       <main class="content-page">
         <section class="page-intro">
-          <p class="eyebrow">Blog</p>
-          <h1>Writing archive</h1>
-          <p class="page-summary">
-            Essays, technical notes, project updates, and short reflections.
-          </p>
+          <p class="eyebrow">About</p>
+          <h1>Background and direction</h1>
+          <p class="page-summary" id="about-summary"></p>
         </section>
 
-        <section class="page-stack" id="blog-archive"></section>
+        <section class="content-grid">
+          <div class="panel prose-panel">
+            <h2>Biography</h2>
+            <p id="about-bio"></p>
+          </div>
+          <div class="panel prose-panel">
+            <h2>Current focus</h2>
+            <ul class="bullet-list" id="focus-list"></ul>
+          </div>
+        </section>
+
+        <section class="panel prose-panel">
+          <h2>Timeline</h2>
+          <div class="timeline" id="timeline-list"></div>
+        </section>
       </main>
     </div>
 
-    <script src="../data/site-data.js"></script>
-    <script src="../script.js"></script>
+    <script src="data/site-data.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

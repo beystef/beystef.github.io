@@ -1,12 +1,26 @@
 const data = window.siteData;
 
 function setBranding(pageTitle) {
-  document.title = `${pageTitle} | ${data.profile.name}`;
+  const siteName = data.profile.name;
+  const asciiName = data.profile.asciiName || siteName;
+  const titles = {
+    Home: `${siteName} | Personal Website`,
+    About: `About ${siteName}`,
+    CV: `CV | ${siteName}`,
+    Projects: `Projects | ${siteName}`,
+    Blog: `Blog | ${siteName}`,
+    Contact: `Contact | ${siteName}`
+  };
+
+  document.title = titles[pageTitle] || `${pageTitle} | ${siteName}`;
   const brand = document.getElementById("brand-text");
 
   if (brand) {
-    brand.textContent = data.profile.name;
+    brand.textContent = siteName;
   }
+
+  document.documentElement.lang = "en";
+  document.body.dataset.asciiName = asciiName;
 }
 
 function createTagList(tags) {

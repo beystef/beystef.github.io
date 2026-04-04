@@ -1,6 +1,8 @@
 window.siteData = {
   profile: {
-    name: "Yusuf Efdal Yilmaz",
+    name: "Yusuf Efdal Yılmaz",
+    asciiName: "Yusuf Efdal Yilmaz",
+    siteUrl: "https://www.efdalyilmaz.com",
     role: "Data science student, researcher, and builder",
     location: "Based in Istanbul, working across research and software",
     summary:

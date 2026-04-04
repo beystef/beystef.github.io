@@ -165,23 +165,15 @@ window.siteData = {
       title: "Why I Wanted a Personal Website",
       date: "April 2026",
       summary:
-        "A short note about why having a place on the web matters and what you want to share here.",
+        "In the vast, shifting landscape of the digital world, I sought to claim a small piece of soil to plant my own flag. A personal website is more than a curated archive; it is a quiet sanctuary where the disparate threads of my curiosity, the rigid logic of code and the fluid beauty of creation, finally weave into a single tapestry. It is a lighthouse for my ideas, built to ensure that in an era of fleeting updates and temporary feeds, my voice remains a steady, intentional resonance in the void.",
       category: "Personal",
-      link: "#"
-    },
-    {
-      title: "Project Notes Template",
-      date: "April 2026",
-      summary:
-        "Use posts like this for progress logs, technical discoveries, or reflections after shipping.",
-      category: "Projects",
       link: "#"
     },
     {
       title: "Things I Am Learning",
       date: "April 2026",
       summary:
-        "A lightweight format for collecting lessons, reading notes, and small experiments.",
+        "Lately, I have been diving deep into the intersection of causal inference and international trade economics, exploring how regulatory frictions structurally reshape global commodity markets.",
       category: "Learning",
       link: "#"
     }

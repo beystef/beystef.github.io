@@ -161,7 +161,7 @@ window.siteData = {
     },
     {
       title: "EUnuts",
-      category: "Research project",
+      category: "Research project -- Ongoing Project",
       description:
         "An economics research website studying the causal impact of European Union aflatoxin regulations on global nut trade pricing. The project organizes proposal material, workflow updates, exploratory analysis, and data notes into a coherent research narrative.",
       tags: ["Economics", "Trade Policy", "Causal Inference", "Data Analysis"],

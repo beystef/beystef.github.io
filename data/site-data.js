@@ -158,6 +158,28 @@ window.siteData = {
         soft: "#F7F1E6",
         border: "#D8C4A2"
       }
+    },
+    {
+      title: "EUnuts",
+      category: "Research project",
+      description:
+        "An economics research website studying the causal impact of European Union aflatoxin regulations on global nut trade pricing. The project organizes proposal material, workflow updates, exploratory analysis, and data notes into a coherent research narrative.",
+      tags: ["Economics", "Trade Policy", "Causal Inference", "Data Analysis"],
+      link: "https://eunuts.efdalyilmaz.com/",
+      secondaryLink: "https://github.com/beystef/eunuts",
+      secondaryLabel: "View repository",
+      linkLabel: "Visit live project",
+      note: "Built as a clean research portal for an ECON 301 project, with separate pages for the proposal, current state, EDA, and data documentation.",
+      highlights: [
+        "Monthly bilateral export data",
+        "2000 to 2023 time coverage",
+        "HS6-level nut and oilseed trade focus"
+      ],
+      theme: {
+        accent: "#9F3D22",
+        soft: "#F6EDE0",
+        border: "#D8CBB8"
+      }
     }
   ],
   posts: [
